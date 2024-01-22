@@ -2,7 +2,14 @@ pageextension 50121 "Payment Journals Gudfood Ext" extends "Payment Journal"
 {
     actions
     {
-        addfirst("&Payments")
+        addlast("Category_Process")
+        {
+            actionref("Suggest Lines"; SuggestGudfoodLines)
+            {
+
+            }
+        }
+        addfirst("F&unctions")
         {
             action(SuggestGudfoodLines)
             {
@@ -11,13 +18,12 @@ pageextension 50121 "Payment Journals Gudfood Ext" extends "Payment Journal"
                 Ellipsis = true;
                 Image = Payment;
                 ToolTip = 'Create payment suggestions as lines in the payment journal.';
-                Promoted = true;
                 trigger OnAction()
                 var
                     SuggestGudfoodPayments: Report "Suggest Gudfood Payments";
                 begin
                     Clear(SuggestGudfoodPayments);
-                    //SuggestGudfoodPayments.SetTableView(Rec);
+                    SuggestGudfoodPayments.SetGenJnlLine(Rec);
                     SuggestGudfoodPayments.RunModal();
                 end;
             }

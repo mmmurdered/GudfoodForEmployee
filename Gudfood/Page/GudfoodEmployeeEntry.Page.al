@@ -4,7 +4,7 @@ page 50120 "Gudfood Employee Entry"
     ApplicationArea = All;
     UsageCategory = Administration;
     SourceTable = "Employee Gudfood Entry";
-    Editable = false;
+    //Editable = false;
 
     layout
     {

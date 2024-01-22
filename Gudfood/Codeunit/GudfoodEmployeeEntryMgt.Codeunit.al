@@ -11,8 +11,8 @@ codeunit 50120 "Gudfood Employee Entry Mgt"
             exit;
         if GudfoodOrderHeader."Order Type" = GudfoodOrderType::Internal then begin
             EmployeeGudfoodEntry.Init();
-            EmployeeGudfoodEntry."Employee No." := GudfoodOrderHeader."Sell-to Customer No.";
-            EmployeeGudfoodEntry."Employee Name" := GudfoodOrderHeader."Sell-to Customer Name";
+            EmployeeGudfoodEntry."Employee No." := GudfoodOrderHeader."Employee No.";
+            EmployeeGudfoodEntry."Employee Name" := GudfoodOrderHeader."Employee Name";
             EmployeeGudfoodEntry."Gudfood Order No." := GudfoodOrderHeader."No.";
             EmployeeGudfoodEntry."Posting Date" := Today;
             EmployeeGudfoodEntry.Amount := GudfoodOrderHeader."Total Amount";

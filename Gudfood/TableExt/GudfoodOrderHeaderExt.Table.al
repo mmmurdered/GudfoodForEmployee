@@ -10,23 +10,23 @@ tableextension 50120 "Gudfood Order Header Extension" extends "Gudfood Order Hea
         {
             TableRelation = Currency;
         }
-        modify("Sell-to Customer No.")
+        field(50122; "Employee No."; Code[20])
         {
-            TableRelation = if ("Order Type" = const("Gudfood Order Type"::Internal)) Employee
-            else
-            if ("Order Type" = const("Gudfood Order Type"::External)) Customer;
+            TableRelation = Employee;
 
-
-            trigger OnAfterValidate()
+            trigger OnValidate()
             var
-                GudfoodOrderType: Enum "Gudfood Order Type";
                 Employee: Record Employee;
             begin
-                if "Order Type" = GudfoodOrderType::Internal then begin
-                    if Employee.Get("Sell-to Customer No.") then
-                        "Sell-to Customer Name" := Employee."First Name";
-                end;
+                if Employee.Get("Employee No.") then
+                    "Employee Name" := Employee.FullName()
+                else
+                    Clear("Employee Name");
             end;
+        }
+        field(50123; "Employee Name"; Text[90])
+        {
+
         }
     }
 }

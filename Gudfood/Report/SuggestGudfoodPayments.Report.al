@@ -8,25 +8,43 @@ report 50120 "Suggest Gudfood Payments"
         {
             trigger OnAfterGetRecord()
             var
-                GenJourLine: Record "Gen. Journal Line";
-                GFEmployeeEntry: Record "Employee Gudfood Entry";
+                GenJourAccountType: Enum "Gen. Journal Account Type";
+                GenJourDocType: Enum "Gen. Journal Document Type";
                 DocumentTypeEnum: Enum "Gen. Journal Document Type";
-                DescriptionLabel: Label 'Payment for Gudfood by the period: from 1% to 2%';
+                DescriptionLabel: Label 'Payment for Gudfood by the period: from %1 to %2';
             begin
                 if ("Posting Date" > StartDate) and ("Posting Date" < EndingDate) then begin
                     GenJourLine.SetRange("Account No.", "Employee Gudfood Entry"."Employee No.");
                     GenJourLine.SetRange("Currency Code", "Employee Gudfood Entry"."Currency Code");
 
-                    if GenJourLine.Find() then begin
+                    if GenJourLine.FindFirst() then begin
                         GenJourLine.Amount += Amount;
+                        GenJourLine.Modify();
                     end else begin
                         GenJourLine.Init();
+
+                        LastLineNo := LastLineNo + 10000;
+                        GenJourLine."Line No." := LastLineNo;
+
                         GenJourLine."Posting Date" := "Posting Date";
                         GenJourLine."Account No." := "Employee No.";
+                        GenJourLine."Account Type" := GenJourAccountType::Employee;
                         GenJourLine.Description := StrSubstNo(DescriptionLabel, StartDate, EndingDate);
                         GenJourLine."Currency Code" := "Currency Code";
+                        GenJourLine."Document Type" := GenJourDocType::Payment;
                         GenJourLine.Amount := Amount;
+                        GenJourLine.Insert(true);
                     end;
+                end;
+            end;
+
+            trigger OnPostDataItem()
+            var
+                GenJrLine: Record "Gen. Journal Line";
+            begin
+                if GenJrLine.FindLast() then begin
+                    LastLineNo := GenJrLine."Line No.";
+                    GenJrLine.Init();
                 end;
             end;
         }
@@ -40,16 +58,14 @@ report 50120 "Suggest Gudfood Payments"
             {
                 group(Period)
                 {
-
                     field("Start Date"; StartDate)
                     {
-
+                        ApplicationArea = All;
                     }
                     field("Ending Date"; EndingDate)
                     {
-
+                        ApplicationArea = All;
                     }
-
                 }
             }
         }
@@ -58,4 +74,11 @@ report 50120 "Suggest Gudfood Payments"
     var
         StartDate: Date;
         EndingDate: Date;
+        GenJourLine: Record "Gen. Journal Line";
+        LastLineNo: Integer;
+
+    procedure SetGenJnlLine(NewGenJnlLine: Record "Gen. Journal Line")
+    begin
+        GenJourLine := NewGenJnlLine;
+    end;
 }
