@@ -13,7 +13,7 @@ report 50120 "Suggest Gudfood Payments"
                 DocumentTypeEnum: Enum "Gen. Journal Document Type";
                 DescriptionLabel: Label 'Payment for Gudfood by the period: from %1 to %2';
             begin
-                if ("Posting Date" > StartDate) and ("Posting Date" < EndingDate) then begin
+                if ("Posting Date" >= StartDate) and ("Posting Date" <= EndingDate) then begin
                     GenJourLine.SetRange("Account No.", "Employee Gudfood Entry"."Employee No.");
                     GenJourLine.SetRange("Currency Code", "Employee Gudfood Entry"."Currency Code");
 

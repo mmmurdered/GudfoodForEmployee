@@ -43,4 +43,27 @@ page 50120 "Gudfood Employee Entry"
             }
         }
     }
+
+    actions
+    {
+        area(Promoted)
+        {
+            actionref(CreateJsonAction; CreateJSON)
+            {
+
+            }
+        }
+        area(Processing)
+        {
+            action(CreateJSON)
+            {
+                Caption = 'Create Json';
+                Image = Download;
+                trigger OnAction()
+                begin
+                    Report.RunModal(Report::"Save JSON Gudfood Entry", true, false, Rec);
+                end;
+            }
+        }
+    }
 }

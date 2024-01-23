@@ -2,7 +2,7 @@ pageextension 50121 "Payment Journals Gudfood Ext" extends "Payment Journal"
 {
     actions
     {
-        addlast("Category_Process")
+        addlast(Category_Category5)
         {
             actionref("Suggest Lines"; SuggestGudfoodLines)
             {
