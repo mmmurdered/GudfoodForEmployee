@@ -2,8 +2,12 @@ pageextension 50124 "Posted Gudfood Order Ext" extends "Posted Gudfood Order"
 {
     layout
     {
-        addafter("No.")
+        addafter("Total Amount")
         {
+            field("Currency Code"; Rec."Currency Code")
+            {
+                ApplicationArea = All;
+            }
             field("Order Type"; Rec."Order Type")
             {
                 ApplicationArea = All;
@@ -25,13 +29,6 @@ pageextension 50124 "Posted Gudfood Order Ext" extends "Posted Gudfood Order"
                     ApplicationArea = All;
                     Editable = false;
                 }
-            }
-        }
-        addafter("Total Amount")
-        {
-            field("Currency Code"; Rec."Currency Code")
-            {
-                ApplicationArea = All;
             }
         }
         modify("Customer Information")

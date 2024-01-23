@@ -14,7 +14,6 @@ pageextension 50120 "Gudfood Order Extension" extends "Gudfood Order"
                 trigger OnValidate()
                 begin
                     InitializeVariables();
-                    CurrPage.Update();
                 end;
             }
             group("Employee Information")
@@ -56,13 +55,15 @@ pageextension 50120 "Gudfood Order Extension" extends "Gudfood Order"
         case Rec."Order Type" of
             Rec."Order Type"::External:
                 begin
-                    Message('External');
                     SetFieldsVisible(true, false);
+                    Clear(Rec."Employee No.");
+                    Clear(Rec."Employee Name");
                 end;
             Rec."Order Type"::Internal:
                 begin
-                    Message('Internal');
                     SetFieldsVisible(false, true);
+                    Clear(Rec."Sell-to Customer No.");
+                    Clear(Rec."Sell-to Customer Name");
                 end;
             else begin
                 SetFieldsVisible(false, false);
