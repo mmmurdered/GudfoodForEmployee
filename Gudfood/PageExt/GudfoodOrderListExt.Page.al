@@ -4,11 +4,11 @@ pageextension 50122 "Gudfood Order List Ext" extends "Gudfood Order List"
     {
         modify("Sell-to Customer No.")
         {
-            Caption = 'Customer/Employe No.';
+            Caption = 'Customer/Employee No.';
         }
         modify("Sell-to Customer Name")
         {
-            Caption = 'Customer/Employe Name';
+            Caption = 'Customer/Employee Name';
         }
     }
     trigger OnAfterGetRecord()

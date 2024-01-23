@@ -2,8 +2,12 @@ pageextension 50120 "Gudfood Order Extension" extends "Gudfood Order"
 {
     layout
     {
-        addafter("No.")
+        addafter("Total Amount")
         {
+            field("Currency Code"; Rec."Currency Code")
+            {
+                ApplicationArea = All;
+            }
             field("Order Type"; Rec."Order Type")
             {
                 ApplicationArea = All;
@@ -13,12 +17,21 @@ pageextension 50120 "Gudfood Order Extension" extends "Gudfood Order"
                     CurrPage.Update();
                 end;
             }
-            group(EmployeeInformation)
+            group("Employee Information")
             {
+                Caption = 'Employee Information';
                 Visible = EmployeeInfoVisible;
                 field("Employee No."; Rec."Employee No.")
                 {
                     ApplicationArea = All;
+                    NotBlank = true;
+                    ShowMandatory = true;
+
+                    trigger OnValidate()
+                    begin
+                        if Rec."Employee No." = '' then
+                            Clear(Rec."Employee Name");
+                    end;
                 }
                 field("Employee Name"; Rec."Employee Name")
                 {
@@ -27,14 +40,7 @@ pageextension 50120 "Gudfood Order Extension" extends "Gudfood Order"
                 }
             }
         }
-        addafter("Total Amount")
-        {
-            field("Currency Code"; Rec."Currency Code")
-            {
-                ApplicationArea = All;
-            }
-        }
-        modify(CustomerInfo)
+        modify("Customer Information")
         {
             Visible = CustomerInfoVisible;
         }

@@ -34,7 +34,7 @@ pageextension 50124 "Posted Gudfood Order Ext" extends "Posted Gudfood Order"
                 ApplicationArea = All;
             }
         }
-        modify(CustomerInfo)
+        modify("Customer Information")
         {
             Visible = CustomerInfoVisible;
         }

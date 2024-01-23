@@ -4,7 +4,7 @@ page 50120 "Gudfood Employee Entry"
     ApplicationArea = All;
     UsageCategory = Administration;
     SourceTable = "Employee Gudfood Entry";
-    //Editable = false;
+    Editable = false;
 
     layout
     {
@@ -48,14 +48,14 @@ page 50120 "Gudfood Employee Entry"
     {
         area(Promoted)
         {
-            actionref(CreateJsonAction; CreateJSON)
+            actionref("Create Json Action"; "Create JSON")
             {
 
             }
         }
         area(Processing)
         {
-            action(CreateJSON)
+            action("Create JSON")
             {
                 Caption = 'Create Json';
                 Image = Download;
