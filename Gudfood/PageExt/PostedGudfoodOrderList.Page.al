@@ -12,6 +12,37 @@ pageextension 50123 "Posted Gudfood Order List Ext" extends "Posted Gudfood Orde
         }
     }
 
+    actions
+    {
+        modify(Export)
+        {
+            Visible = false;
+        }
+        addlast(Processing)
+        {
+            action(ExportOrderXML)
+            {
+                ApplicationArea = All;
+                Caption = 'Export to XML';
+                Image = XMLFile;
+                trigger OnAction()
+                var
+                    GudfoodOrderHeader: Record "Gudfood Order Header";
+                begin
+                    CurrPage.SetSelectionFilter(Rec);
+                    Xmlport.Run(Xmlport::"GF Empl Posted Order Export", true, false, Rec);
+                end;
+            }
+        }
+        addlast(Exporting)
+        {
+            actionref("Export XML Order"; ExportOrderXML)
+            {
+
+            }
+        }
+    }
+
     trigger OnAfterGetRecord()
     var
         GudfoodOrderType: Enum "Gudfood Order Type";

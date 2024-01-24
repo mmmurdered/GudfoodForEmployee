@@ -1,14 +1,12 @@
 codeunit 50120 "Gudfood Employee Entry Mgt"
 {
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gudfood Order Post", 'OnBeforePostGudfoodOrder', '', false, false)]
-    local procedure PostEmployeeGudfoodEntry(var GudfoodOrderHeader: Record "Gudfood Order Header"; IsHandled: Boolean)
+    local procedure PostEmployeeGudfoodEntry(var GudfoodOrderHeader: Record "Gudfood Order Header")
     var
         GudfoodOrderType: Enum "Gudfood Order Type";
         GudfoodOrderLine: Record "Gudfood Order Line";
         EmployeeGudfoodEntry: Record "Employee Gudfood Entry";
     begin
-        if not IsHandled then
-            exit;
         if GudfoodOrderHeader."Order Type" = GudfoodOrderType::Internal then begin
             EmployeeGudfoodEntry.Init();
             EmployeeGudfoodEntry."Employee No." := GudfoodOrderHeader."Employee No.";

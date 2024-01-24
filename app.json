@@ -1,10 +1,10 @@
 {
   "id": "3f755ad8-1b8b-4309-abe5-9bdbd3df4d68",
   "name": "GudfoodForEmployee",
-  "publisher": "Default Publisher",
+  "publisher": "SMART business",
   "version": "1.0.0.0",
-  "brief": "",
-  "description": "",
+  "brief": "Extension for employee functionality for Gudfood project",
+  "description": "Extension for employee functionality for Gudfood project that add functionality with employee(order, repots, posting etc.)",
   "privacyStatement": "",
   "EULA": "",
   "help": "",
@@ -34,6 +34,6 @@
   },
   "runtime": "12.0",
   "features": [
-    "NoImplicitWith"
+    "NoImplicitWith", "TranslationFile"
   ]
 }

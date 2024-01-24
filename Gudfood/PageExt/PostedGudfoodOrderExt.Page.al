@@ -19,6 +19,7 @@ pageextension 50124 "Posted Gudfood Order Ext" extends "Posted Gudfood Order"
             }
             group(EmployeeInformation)
             {
+                Caption = 'Employee Information';
                 Visible = EmployeeInfoVisible;
                 field("Employee No."; Rec."Employee No.")
                 {
@@ -36,6 +37,38 @@ pageextension 50124 "Posted Gudfood Order Ext" extends "Posted Gudfood Order"
             Visible = CustomerInfoVisible;
         }
     }
+
+    actions
+    {
+        modify(Export)
+        {
+            Visible = false;
+        }
+        addlast(Processing)
+        {
+            action(ExportOrderXML)
+            {
+                ApplicationArea = All;
+                Caption = 'Export to XML';
+                Image = XMLFile;
+                trigger OnAction()
+                var
+                    PostedGudfoodOrderHeader: Record "Posted Gudfood Order Header";
+                begin
+                    PostedGudfoodOrderHeader.SetRange("No.", Rec."No.");
+                    Xmlport.Run(Xmlport::"GF Empl Posted Order Export", true, false, PostedGudfoodOrderHeader);
+                end;
+            }
+        }
+        addlast(Exporting)
+        {
+            actionref("Export XML Order"; ExportOrderXML)
+            {
+
+            }
+        }
+    }
+
     trigger OnOpenPage()
     begin
         InitializeVariables();
@@ -46,12 +79,10 @@ pageextension 50124 "Posted Gudfood Order Ext" extends "Posted Gudfood Order"
         case Rec."Order Type" of
             Rec."Order Type"::External:
                 begin
-                    Message('External');
                     SetFieldsVisible(true, false);
                 end;
             Rec."Order Type"::Internal:
                 begin
-                    Message('Internal');
                     SetFieldsVisible(false, true);
                 end;
             else begin

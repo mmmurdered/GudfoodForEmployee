@@ -23,13 +23,12 @@ pageextension 50120 "Gudfood Order Extension" extends "Gudfood Order"
                 field("Employee No."; Rec."Employee No.")
                 {
                     ApplicationArea = All;
-                    NotBlank = true;
                     ShowMandatory = true;
 
                     trigger OnValidate()
                     begin
                         if Rec."Employee No." = '' then
-                            Clear(Rec."Employee Name");
+                            Rec."Employee Name" := '';
                     end;
                 }
                 field("Employee Name"; Rec."Employee Name")
@@ -45,6 +44,37 @@ pageextension 50120 "Gudfood Order Extension" extends "Gudfood Order"
         }
     }
 
+    actions
+    {
+        modify(Export)
+        {
+            Visible = false;
+        }
+        addlast(Processing)
+        {
+            action(ExportOrderXML)
+            {
+                ApplicationArea = All;
+                Caption = 'Export to XML';
+                Image = XMLFile;
+                trigger OnAction()
+                var
+                    GudfoodOrderHeader: Record "Gudfood Order Header";
+                begin
+                    GudfoodOrderHeader.SetRange("No.", Rec."No.");
+                    Xmlport.Run(Xmlport::"GF for Employee Order Export", true, false, GudfoodOrderHeader);
+                end;
+            }
+        }
+        addlast(Exporting)
+        {
+            actionref("Export Order XML"; ExportOrderXML)
+            {
+
+            }
+        }
+    }
+
     trigger OnOpenPage()
     begin
         InitializeVariables();
@@ -56,14 +86,14 @@ pageextension 50120 "Gudfood Order Extension" extends "Gudfood Order"
             Rec."Order Type"::External:
                 begin
                     SetFieldsVisible(true, false);
-                    Clear(Rec."Employee No.");
-                    Clear(Rec."Employee Name");
+                    Rec."Employee No." := '';
+                    Rec."Employee Name" := '';
                 end;
             Rec."Order Type"::Internal:
                 begin
                     SetFieldsVisible(false, true);
-                    Clear(Rec."Sell-to Customer No.");
-                    Clear(Rec."Sell-to Customer Name");
+                    Rec."Sell-to Customer No." := '';
+                    Rec."Sell-to Customer Name" := '';
                 end;
             else begin
                 SetFieldsVisible(false, false);
