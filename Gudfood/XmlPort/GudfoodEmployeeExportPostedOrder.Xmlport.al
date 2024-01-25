@@ -16,35 +16,19 @@ xmlport 50121 "GF Empl Posted Order Export"
                 }
                 fieldelement(SellToCustomerNo; PostedGudfoodOrderHeader."Sell-to Customer No.")
                 {
-                    trigger OnBeforePassField()
-                    begin
-                        if PostedGudfoodOrderHeader."Order Type" = PostedGudfoodOrderHeader."Order Type"::Internal then
-                            currXMLport.Skip();
-                    end;
+
                 }
                 fieldelement(SellToCustomerName; PostedGudfoodOrderHeader."Sell-to Customer Name")
                 {
-                    trigger OnBeforePassField()
-                    begin
-                        if PostedGudfoodOrderHeader."Order Type" = PostedGudfoodOrderHeader."Order Type"::Internal then
-                            currXMLport.Skip();
-                    end;
+
                 }
                 fieldelement(SellToEmployeeNo; PostedGudfoodOrderHeader."Employee No.")
                 {
-                    trigger OnBeforePassField()
-                    begin
-                        if PostedGudfoodOrderHeader."Order Type" = PostedGudfoodOrderHeader."Order Type"::External then
-                            currXMLport.Skip();
-                    end;
+
                 }
                 fieldelement(SellToEmployeeName; PostedGudfoodOrderHeader."Employee Name")
                 {
-                    trigger OnBeforePassField()
-                    begin
-                        if PostedGudfoodOrderHeader."Order Type" = PostedGudfoodOrderHeader."Order Type"::External then
-                            currXMLport.Skip();
-                    end;
+
                 }
                 fieldelement(OrderDate; PostedGudfoodOrderHeader."Order Date")
                 {

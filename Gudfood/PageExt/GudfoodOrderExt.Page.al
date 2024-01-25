@@ -16,6 +16,9 @@ pageextension 50120 "Gudfood Order Extension" extends "Gudfood Order"
                     InitializeVariables();
                 end;
             }
+        }
+        addafter("No.")
+        {
             group("Employee Information")
             {
                 Caption = 'Employee Information';

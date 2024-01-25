@@ -4,21 +4,37 @@ report 50121 "Save JSON Gudfood Entry"
 
     dataset
     {
+
         dataitem("Employee Gudfood Entry"; "Employee Gudfood Entry")
         {
-            trigger OnAfterGetRecord()
+            trigger OnPreDataItem()
             begin
-                if ("Posting Date" >= StartDate) and ("Posting Date" <= EndingDate) then begin
-                    GudfoodEntryTemp.SetRange("Employee No.", "Employee No.");
-                    GudfoodEntryTemp.SetRange("Currency Code", "Currency Code");
-                    if GudfoodEntryTemp.FindFirst() then begin
-                        GudfoodEntryTemp.Amount += Amount;
-                        GudfoodEntryTemp.Modify();
-                    end else begin
-                        GudfoodEntryTemp.Init();
-                        GudfoodEntryTemp.TransferFields("Employee Gudfood Entry");
-                        GudfoodEntryTemp.Insert(true);
-                    end;
+                "Employee Gudfood Entry".SetRange("Posting Date", StartDate, EndingDate);
+                "Employee Gudfood Entry".SetCurrentKey("Currency Code", "Entry No.");
+            end;
+
+            trigger OnAfterGetRecord()
+            var
+                EntryObject: JsonObject;
+            begin
+                "Employee Gudfood Entry".SetRange("Currency Code", "Employee Gudfood Entry"."Currency Code");
+                "Employee Gudfood Entry".SetRange("Employee No.", "Employee Gudfood Entry"."Employee No.");
+
+                if "Employee Gudfood Entry".FindSet() then begin
+                    "Employee Gudfood Entry".CalcSums(Amount);
+
+                    Clear(EntryObject);
+                    EntryObject.Add('Employee No.', "Employee Gudfood Entry"."Employee No.");
+                    EntryObject.Add('Employee Name', "Employee Gudfood Entry"."Employee Name");
+                    EntryObject.Add('Gudfood Order No.', "Employee Gudfood Entry"."Gudfood Order No.");
+                    EntryObject.Add('Posting Date', "Employee Gudfood Entry"."Posting Date");
+                    EntryObject.Add('Amount', "Employee Gudfood Entry".Amount);
+                    EntryObject.Add('Currency Code', "Employee Gudfood Entry"."Currency Code");
+                    EntryArray.Add(EntryObject);
+
+                    "Employee Gudfood Entry".FindLast();
+                    "Employee Gudfood Entry".SetRange("Currency Code");
+                    "Employee Gudfood Entry".SetRange("Employee No.");
                 end;
             end;
         }
@@ -46,45 +62,37 @@ report 50121 "Save JSON Gudfood Entry"
     }
 
     var
-        GudfoodEntryTemp: Record "GF Grouped Employee Entry Temp";
         StartDate: Date;
         EndingDate: Date;
+        EntryArray: JsonArray;
 
     trigger OnPostReport()
     var
-        EntryArray: JsonArray;
-        EntryObject: JsonObject;
-        JsonData: Text;
         TempBlob: Codeunit "Temp Blob";
-        OutStream: OutStream;
-        InStream: InStream;
         DownloadLabel: Label 'Download JSON file';
         FileName: Text;
+        OutStream: OutStream;
+        InStream: InStream;
+        JsonData: Text;
     begin
-        GudfoodEntryTemp.Reset();
-        if GudfoodEntryTemp.FindSet() then begin
-            Message(Format(GudfoodEntryTemp));
-            repeat
-                Clear(EntryObject);
-                EntryObject.Add('Employee No.', GudfoodEntryTemp."Employee No.");
-                EntryObject.Add('Employee Name', GudfoodEntryTemp."Employee Name");
-                EntryObject.Add('Gudfood Order No.', GudfoodEntryTemp."Gudfood Order No.");
-                EntryObject.Add('Posting Date', GudfoodEntryTemp."Posting Date");
-                EntryObject.Add('Amount', GudfoodEntryTemp.Amount);
-                EntryObject.Add('Currency Code', GudfoodEntryTemp."Currency Code");
+        TempBlob.CreateOutStream(OutStream);
+        TempBlob.CreateInStream(InStream);
 
-                EntryArray.Add(EntryObject);
-            until GudfoodEntryTemp.Next() = 0;
+        EntryArray.WriteTo(JsonData);
+        OutStream.WriteText(JsonData);
 
-            TempBlob.CreateOutStream(OutStream);
-            TempBlob.CreateInStream(InStream);
+        FileName := 'Entry.json';
+        InStream.ReadText(JsonData);
+        DownloadFromStream(InStream, DownloadLabel, '', '', FileName);
+    end;
 
-            EntryArray.WriteTo(JsonData);
-            OutStream.WriteText(JsonData);
-
-            FileName := 'Entry.json';
-            InStream.ReadText(JsonData);
-            DownloadFromStream(InStream, DownloadLabel, '', '', FileName);
+    trigger OnPreReport()
+    var
+        ErrorDateMessage: Label 'ERROR: Starting date is more than ending';
+    begin
+        if StartDate > EndingDate then begin
+            Error(ErrorDateMessage);
+            CurrReport.Quit();
         end;
     end;
 }

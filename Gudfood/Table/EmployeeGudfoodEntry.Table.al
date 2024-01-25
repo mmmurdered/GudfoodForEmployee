@@ -1,5 +1,6 @@
 table 50120 "Employee Gudfood Entry"
 {
+    Caption = 'Employee Gudfood Entry';
     fields
     {
         field(1; "Entry No."; Integer)
@@ -39,6 +40,10 @@ table 50120 "Employee Gudfood Entry"
         key(PK; "Entry No.")
         {
             Clustered = true;
+        }
+        key("Currency & No Key"; "Currency Code", "Entry No.")
+        {
+
         }
     }
 }

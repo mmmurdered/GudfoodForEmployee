@@ -17,7 +17,10 @@ pageextension 50124 "Posted Gudfood Order Ext" extends "Posted Gudfood Order"
                     CurrPage.Update();
                 end;
             }
-            group(EmployeeInformation)
+        }
+        addafter("No.")
+        {
+            group("Employee Information")
             {
                 Caption = 'Employee Information';
                 Visible = EmployeeInfoVisible;

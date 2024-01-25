@@ -3,6 +3,11 @@
   <file datatype="xml" source-language="en-US" target-language="en-US" original="GudfoodForEmployee">
     <body>
       <group id="body">
+        <trans-unit id="Table 1273678158 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Employee Gudfood Entry</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table Employee Gudfood Entry - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 1273678158 - Field 636392376 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Amount</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -38,50 +43,55 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table Employee Gudfood Entry - Field Posting Date - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 3967393087 - Field 636392376 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Amount</source>
+        <trans-unit id="Page 3941523260 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gudfood Sell-to Info</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table GF Grouped Employee Entry Temp - Field Amount - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page GF SellTo Info Order FB - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 3967393087 - Field 4198939294 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Currency Code</source>
+        <trans-unit id="Page 3941523260 - Control 3431103444 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Information</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table GF Grouped Employee Entry Temp - Field Currency Code - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page GF SellTo Info Order FB - Control Customer Information - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 3967393087 - Field 1480804031 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Employee Name</source>
+        <trans-unit id="Page 3941523260 - Control 1267397578 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Employee Information</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table GF Grouped Employee Entry Temp - Field Employee Name - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page GF SellTo Info Order FB - Control Employee Information - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 3967393087 - Field 1964419135 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Employee No.</source>
+        <trans-unit id="Page 439552219 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gudfood Sell-to Info</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table GF Grouped Employee Entry Temp - Field Employee No. - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page GF SellTo Info Posted Order FB - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 3967393087 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Entry No.</source>
+        <trans-unit id="Page 439552219 - Control 3431103444 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Information</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table GF Grouped Employee Entry Temp - Field Entry No. - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page GF SellTo Info Posted Order FB - Control Customer Information - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 3967393087 - Field 423195087 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Gudfood Order No.</source>
+        <trans-unit id="Page 439552219 - Control 1267397578 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Employee Information</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table GF Grouped Employee Entry Temp - Field Gudfood Order No. - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page GF SellTo Info Posted Order FB - Control Employee Information - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 3967393087 - Field 3710982960 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Posting Date</source>
+        <trans-unit id="Page 872725390 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gudfood Employee Entry</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table GF Grouped Employee Entry Temp - Field Posting Date - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page Gudfood Employee Entry - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 872725390 - Action 3236714808 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Create Json</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Gudfood Employee Entry - Action Create JSON - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Report 1520211619 - Method 2736589801 - NamedType 788074558" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Report 1520211619 - NamedType 788074558" size-unit="char" translate="yes" xml:space="preserve">
           <source>Download JSON file</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Save JSON Gudfood Entry - Method OnPostReport - NamedType DownloadLabel</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Save JSON Gudfood Entry - NamedType DownloadLabel</note>
+        </trans-unit>
+        <trans-unit id="Report 1520211619 - Method 1544076788 - NamedType 3690659081" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ERROR: Starting date is more than ending</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Save JSON Gudfood Entry - Method OnPreReport - NamedType ErrorDateMessage</note>
         </trans-unit>
         <trans-unit id="Report 3447965771 - ReportDataItem 1273678158 - Method 3245603402 - NamedType 3093731364" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment for Gudfood by the period: from %1 to %2</source>
@@ -113,15 +123,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gudfood Order List Ext - Action ExportOrderXML - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 562470667 - Change 1474036805 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2070028540">
-          <source>Customer/Employee Name</source>
+        <trans-unit id="PageExtension 562470667 - Control 2467964608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2070028540">
+          <source>Sell-to Information</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gudfood Order List Ext - Change Sell-to Customer Name - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 562470667 - Change 1225278069 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2070028540">
-          <source>Customer/Employee No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gudfood Order List Ext - Change Sell-to Customer No. - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Gudfood Order List Ext - Control Sell-to Information - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 349100639 - Action 4091946703 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3196174509">
           <source>Create payment suggestions as lines in the payment journal.</source>
@@ -138,25 +143,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gudfood Order Ext - Action ExportOrderXML - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 2148216534 - Control 1843677602 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2760287525">
+        <trans-unit id="PageExtension 2148216534 - Control 1267397578 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2760287525">
           <source>Employee Information</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gudfood Order Ext - Control EmployeeInformation - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gudfood Order Ext - Control Employee Information - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 4280419068 - Action 1003801157 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2067450363">
           <source>Export to XML</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gudfood Order List Ext - Action ExportOrderXML - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 4280419068 - Change 1474036805 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2067450363">
-          <source>Customer/Employe Name</source>
+        <trans-unit id="PageExtension 4280419068 - Control 2467964608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2067450363">
+          <source>Sell-to Information</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gudfood Order List Ext - Change Sell-to Customer Name - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 4280419068 - Change 1225278069 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2067450363">
-          <source>Customer/Employe No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gudfood Order List Ext - Change Sell-to Customer No. - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension Posted Gudfood Order List Ext - Control Sell-to Information - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1143690440 - Field 4198939294 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4217843823">
           <source>Currency Code</source>
@@ -218,16 +218,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum Gudfood Order Type - EnumValue Internal - Property Caption</note>
         </trans-unit>
-        <trans-unit id="ReportExtension 3588391647 - NamedType 2976116576" size-unit="char" translate="yes" xml:space="preserve" al-object-target="ReportExtension 3588391647">
-          <source>Sell-to Employee Name</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">ReportExtension Gudfood Order Report Extension - NamedType SelToNameLbl</note>
-        </trans-unit>
-        <trans-unit id="ReportExtension 3588391647 - NamedType 1815685518" size-unit="char" translate="yes" xml:space="preserve" al-object-target="ReportExtension 3588391647">
-          <source>Sell-to Employee No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">ReportExtension Gudfood Order Report Extension - NamedType SelToNoLbl</note>
-        </trans-unit>
         <trans-unit id="ReportExtension 3588391647 - ReportLayout 692477795 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Report 2838874104">
           <source>Gudfood for Employee Order Report (RDLC)</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -237,16 +227,6 @@
           <source>Gudfood for Employee Order Report (Word)</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">ReportExtension Gudfood Order Report Extension - ReportLayout Word - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="ReportExtension 3126130887 - NamedType 2976116576" size-unit="char" translate="yes" xml:space="preserve" al-object-target="ReportExtension 3126130887">
-          <source>Sell-to Employee Name</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">ReportExtension Gudfood Posted Order Report - NamedType SelToNameLbl</note>
-        </trans-unit>
-        <trans-unit id="ReportExtension 3126130887 - NamedType 1815685518" size-unit="char" translate="yes" xml:space="preserve" al-object-target="ReportExtension 3126130887">
-          <source>Sell-to Employee No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">ReportExtension Gudfood Posted Order Report - NamedType SelToNoLbl</note>
         </trans-unit>
         <trans-unit id="ReportExtension 3126130887 - ReportLayout 692477795 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Report 3126130887">
           <source>Gudfood for Employee Posted Order Report (RDLC)</source>

@@ -4,11 +4,20 @@ pageextension 50123 "Posted Gudfood Order List Ext" extends "Posted Gudfood Orde
     {
         modify("Sell-to Customer No.")
         {
-            Caption = 'Customer/Employe No.';
+            Visible = false;
         }
         modify("Sell-to Customer Name")
         {
-            Caption = 'Customer/Employe Name';
+            Visible = false;
+        }
+        addlast(FactBoxes)
+        {
+            part("Sell-to Information"; "GF SellTo Info Posted Order FB")
+            {
+                Caption = 'Sell-to Information';
+                ApplicationArea = All;
+                SubPageLink = "No." = field("No.");
+            }
         }
     }
 

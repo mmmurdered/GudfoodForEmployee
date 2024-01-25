@@ -703,66 +703,6 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Textbox Name="Sell_to_Customer_No_">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=First(Fields!Sell_to_Customer_No_.Value, "DataSet_Result")</Value>
-                    <Style />
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Sell_to_Customer_No_</rd:DefaultName>
-            <Top>0.60639in</Top>
-            <Left>0.54042in</Left>
-            <Height>0.25in</Height>
-            <Width>1in</Width>
-            <ZIndex>3</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Sell_to_Customer_Name">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=First(Fields!Sell_to_Customer_Name.Value, "DataSet_Result")</Value>
-                    <Style />
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Sell_to_Customer_Name</rd:DefaultName>
-            <Top>1.23834in</Top>
-            <Left>0.54042in</Left>
-            <Height>0.25in</Height>
-            <Width>1in</Width>
-            <ZIndex>4</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
           <Textbox Name="Date_Created_For_CaptionCaption">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -782,7 +722,7 @@
             <Left>6.97792in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
-            <ZIndex>5</ZIndex>
+            <ZIndex>3</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -812,6 +752,66 @@
             <Left>0.54042in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
+            <ZIndex>4</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Sell_To_No_Value">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!Sell_To_No_Value.Value, "DataSet_Result")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Sell_To_No_Value</rd:DefaultName>
+            <Top>0.62027in</Top>
+            <Left>0.54042in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <ZIndex>5</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Sell_To_Name_Value">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!Sell_To_Name_Value.Value, "DataSet_Result")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Sell_To_Name_Value</rd:DefaultName>
+            <Top>1.25222in</Top>
+            <Left>0.54042in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
             <ZIndex>6</ZIndex>
             <Style>
               <Border>
@@ -838,7 +838,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Sell_To_Name_Caption</rd:DefaultName>
-            <Top>0.96056in</Top>
+            <Top>0.93971in</Top>
             <Left>0.54042in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
@@ -1108,6 +1108,12 @@ End Function
         </Field>
         <Field Name="Sell_To_Name_Caption">
           <DataField>Sell_To_Name_Caption</DataField>
+        </Field>
+        <Field Name="Sell_To_No_Value">
+          <DataField>Sell_To_No_Value</DataField>
+        </Field>
+        <Field Name="Sell_To_Name_Value">
+          <DataField>Sell_To_Name_Value</DataField>
         </Field>
       </Fields>
       <Query>

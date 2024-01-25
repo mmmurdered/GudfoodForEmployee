@@ -12,20 +12,37 @@ reportextension 50121 "Gudfood Posted Order Report" extends "Gudfood Posted Orde
             {
 
             }
+            column(Sell_To_No_Value; SellToNoValue)
+            {
+
+            }
+            column(Sell_To_Name_Value; SellToNameValue)
+            {
+
+            }
         }
 
         modify(GudfoodPostedOrderHeader)
         {
             trigger OnAfterAfterGetRecord()
-            var
-
             begin
-                if "Order Type" = "Order Type"::Internal then begin
-                    SellToNoCaption := SelToNoLbl;
-                    SellToNameCaption := SelToNameLbl;
+                case "Order Type" of
+                    "Order Type"::Internal:
+                        begin
+                            SellToNoCaption := GudfoodPostedOrderHeader.FieldCaption("Employee No.");
+                            SellToNameCaption := GudfoodPostedOrderHeader.FieldCaption("Employee Name");
 
-                    "Sell-to Customer No." := "Employee No.";
-                    "Sell-to Customer Name" := "Employee Name";
+                            SellToNoValue := "Employee No.";
+                            SellToNameValue := "Employee Name";
+                        end;
+                    "Order Type"::External:
+                        begin
+                            SellToNoCaption := GudfoodPostedOrderHeader.FieldCaption("Sell-to Customer No.");
+                            SellToNameCaption := GudfoodPostedOrderHeader.FieldCaption("Sell-to Customer Name");
+
+                            SellToNoValue := "Sell-to Customer No.";
+                            SellToNameValue := "Sell-to Customer Name";
+                        end;
                 end;
             end;
         }
@@ -51,6 +68,6 @@ reportextension 50121 "Gudfood Posted Order Report" extends "Gudfood Posted Orde
     var
         SellToNoCaption: Text;
         SellToNameCaption: Text;
-        SelToNoLbl: Label 'Sell-to Employee No.';
-        SelToNameLbl: Label 'Sell-to Employee Name';
+        SellToNoValue: Code[20];
+        SellToNameValue: Text[100];
 }
