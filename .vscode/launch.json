@@ -1,0 +1,22 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Int EDU AC BC23",
+            "request": "launch",
+            "type": "al",
+            "server": "https://navdev.smartcloud.com.ua/",
+            "serverInstance": "Int_EDU_AC_BC23",
+            "authentication": "UserPassword",
+            "port": 7149,
+            "startupObjectId": 50109,
+            "startupObjectType": "Page",
+            "breakOnError": true,
+            "launchBrowser": true,
+            "enableLongRunningSqlStatements": true,
+            "enableSqlInformationDebugger": true,
+            "environmentType": "OnPrem",
+            "schemaUpdateMode": "ForceSync"
+        }
+    ]
+}
