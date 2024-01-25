@@ -22,6 +22,7 @@ report 50121 "Save JSON Gudfood Entry"
 
                 if "Employee Gudfood Entry".FindSet() then begin
                     "Employee Gudfood Entry".CalcSums(Amount);
+                    "Employee Gudfood Entry".CalcFields("Employee Name");
 
                     Clear(EntryObject);
                     EntryObject.Add('Employee No.', "Employee Gudfood Entry"."Employee No.");

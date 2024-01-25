@@ -83,10 +83,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Gudfood Employee Entry - Action Create JSON - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Report 1520211619 - NamedType 788074558" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Report 1520211619 - Method 2736589801 - NamedType 788074558" size-unit="char" translate="yes" xml:space="preserve">
           <source>Download JSON file</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Save JSON Gudfood Entry - NamedType DownloadLabel</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Save JSON Gudfood Entry - Method OnPostReport - NamedType DownloadLabel</note>
         </trans-unit>
         <trans-unit id="Report 1520211619 - Method 1544076788 - NamedType 3690659081" size-unit="char" translate="yes" xml:space="preserve">
           <source>ERROR: Starting date is more than ending</source>
