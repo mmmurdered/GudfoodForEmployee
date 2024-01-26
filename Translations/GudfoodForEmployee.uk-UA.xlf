@@ -111,6 +111,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report Save JSON Gudfood Entry - Method OnPreReport - NamedType ErrorDateMessage</note>
         </trans-unit>
+        <trans-unit id="Report 3447965771 - Method 1544076788 - NamedType 3690659081" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ERROR: Starting date is more than ending</source>
+          <target state="translated">ПОМИЛКА: Початкова дата більше ніж кінцева</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Suggest Gudfood Payments - Method OnPreReport - NamedType ErrorDateMessage</note>
+        </trans-unit>
         <trans-unit id="Report 3447965771 - ReportDataItem 1273678158 - Method 3245603402 - NamedType 3093731364" size-unit="char" translate="yes" xml:space="preserve">
           <source>Payment for Gudfood by the period: from %1 to %2</source>
           <target state="translated">Платежі по Гудфуд за період: %1 до %2</target>

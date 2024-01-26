@@ -84,4 +84,14 @@ report 50120 "Suggest Gudfood Payments"
     begin
         GenJourLine := NewGenJnlLine;
     end;
+
+    trigger OnPreReport()
+    var
+        ErrorDateMessage: Label 'ERROR: Starting date is more than ending';
+    begin
+        if StartDate > EndingDate then begin
+            Error(ErrorDateMessage);
+            CurrReport.Quit();
+        end;
+    end;
 }
