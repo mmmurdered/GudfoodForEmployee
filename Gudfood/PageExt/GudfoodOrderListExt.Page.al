@@ -4,11 +4,20 @@ pageextension 50122 "Gudfood Order List Ext" extends "Gudfood Order List"
     {
         modify("Sell-to Customer No.")
         {
-            Caption = 'Customer/Employee No.';
+            Visible = false;
         }
         modify("Sell-to Customer Name")
         {
-            Caption = 'Customer/Employee Name';
+            Visible = false;
+        }
+        addlast(FactBoxes)
+        {
+            part("Sell-to Information"; "GF SellTo Info Order FB")
+            {
+                Caption = 'Sell-to Information';
+                ApplicationArea = All;
+                SubPageLink = "No." = field("No.");
+            }
         }
     }
 
@@ -42,29 +51,4 @@ pageextension 50122 "Gudfood Order List Ext" extends "Gudfood Order List"
             }
         }
     }
-
-    trigger OnAfterGetRecord()
-    var
-        GudfoodOrderType: Enum "Gudfood Order Type";
-    begin
-        if Rec."Order Type" = GudfoodOrderType::Internal then begin
-            Rec."Sell-to Customer No." := Rec."Employee No.";
-            Rec."Sell-to Customer Name" := Rec."Employee Name";
-        end;
-    end;
-
-    trigger OnClosePage()
-    var
-        GudfoodOrder: Record "Gudfood Order Header";
-    begin
-        GudfoodOrder.SetRange("Order Type", Rec."Order Type"::External);
-        if GudfoodOrder.FindSet() then begin
-            repeat
-                GudfoodOrder."Sell-to Customer No." := '';
-                GudfoodOrder."Sell-to Customer Name" := '';
-            until GudfoodOrder.Next() = 0;
-        end;
-    end;
-
-
 }

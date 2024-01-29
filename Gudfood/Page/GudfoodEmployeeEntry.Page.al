@@ -1,5 +1,6 @@
 page 50120 "Gudfood Employee Entry"
 {
+    Caption = 'Gudfood Employee Entry';
     PageType = List;
     ApplicationArea = All;
     UsageCategory = Administration;

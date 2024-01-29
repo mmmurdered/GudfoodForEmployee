@@ -13,29 +13,32 @@ report 50120 "Suggest Gudfood Payments"
                 DocumentTypeEnum: Enum "Gen. Journal Document Type";
                 DescriptionLabel: Label 'Payment for Gudfood by the period: from %1 to %2';
             begin
-                if ("Posting Date" >= StartDate) and ("Posting Date" <= EndingDate) then begin
-                    GenJourLine.SetRange("Account No.", "Employee Gudfood Entry"."Employee No.");
-                    GenJourLine.SetRange("Currency Code", "Employee Gudfood Entry"."Currency Code");
+                GenJourLine.SetRange("Account No.", "Employee Gudfood Entry"."Employee No.");
+                GenJourLine.SetRange("Currency Code", "Employee Gudfood Entry"."Currency Code");
 
-                    if GenJourLine.FindFirst() then begin
-                        GenJourLine.Amount += Amount;
-                        GenJourLine.Modify();
-                    end else begin
-                        GenJourLine.Init();
+                if GenJourLine.FindFirst() then begin
+                    GenJourLine.Amount += Amount;
+                    GenJourLine.Modify();
+                end else begin
+                    GenJourLine.Init();
 
-                        LastLineNo := LastLineNo + 10000;
-                        GenJourLine."Line No." := LastLineNo;
+                    LastLineNo := LastLineNo + 10000;
+                    GenJourLine."Line No." := LastLineNo;
 
-                        GenJourLine."Posting Date" := "Posting Date";
-                        GenJourLine."Account No." := "Employee No.";
-                        GenJourLine."Account Type" := GenJourAccountType::Employee;
-                        GenJourLine.Description := StrSubstNo(DescriptionLabel, StartDate, EndingDate);
-                        GenJourLine."Currency Code" := "Currency Code";
-                        GenJourLine."Document Type" := GenJourDocType::Payment;
-                        GenJourLine.Amount := Amount;
-                        GenJourLine.Insert(true);
-                    end;
+                    GenJourLine."Posting Date" := "Posting Date";
+                    GenJourLine."Account No." := "Employee No.";
+                    GenJourLine."Account Type" := GenJourAccountType::Employee;
+                    GenJourLine.Description := StrSubstNo(DescriptionLabel, StartDate, EndingDate);
+                    GenJourLine."Currency Code" := "Currency Code";
+                    GenJourLine."Document Type" := GenJourDocType::Payment;
+                    GenJourLine.Amount := Amount;
+                    GenJourLine.Insert(true);
                 end;
+            end;
+
+            trigger OnPreDataItem()
+            begin
+                "Employee Gudfood Entry".SetRange("Posting Date", StartDate, EndingDate);
             end;
 
             trigger OnPostDataItem()
@@ -80,5 +83,15 @@ report 50120 "Suggest Gudfood Payments"
     procedure SetGenJnlLine(NewGenJnlLine: Record "Gen. Journal Line")
     begin
         GenJourLine := NewGenJnlLine;
+    end;
+
+    trigger OnPreReport()
+    var
+        ErrorDateMessage: Label 'ERROR: Starting date is more than ending';
+    begin
+        if StartDate > EndingDate then begin
+            Error(ErrorDateMessage);
+            CurrReport.Quit();
+        end;
     end;
 }
